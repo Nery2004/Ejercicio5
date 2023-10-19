@@ -19,8 +19,8 @@ public class TorneoVoleibol {
             System.out.println("Menu Principal:");
             System.out.println("1. Registrar Jugador");
             System.out.println("2. Mostrar Jugadores Inscritos");
-            System.out.println("3. Mostrar 3 Mejores Líberos");
-            System.out.println("4. Contar Pasadores Efectivos (más del 80% de efectividad)");
+            System.out.println("3. Mostrar 3 Mejores Liberos");
+            System.out.println("4. Contar Pasadores Efectivos (mas del 80% de efectividad)");
             System.out.println("5. Salir");
             System.out.print("Seleccione una opcion: ");
 
@@ -43,7 +43,7 @@ public class TorneoVoleibol {
                     System.out.println("Gracias por usar el programa!");
                     break;
                 default:
-                    System.out.println("Por favor, seleccione una opción válida");
+                    System.out.println("Por favor, seleccione una opcion valida");
             }
         } while (opcion != 5);
     }
@@ -69,7 +69,7 @@ public class TorneoVoleibol {
     Jugador jugador = null;
 
     if (tipoJugador == 1) {
-        System.out.print("Ingrese la cantidad de recibos del líbero: ");
+        System.out.print("Ingrese la cantidad de recibos del libero: ");
         int recibos = scanner.nextInt();
         jugador = new Libero(nombre, pais, errores, aces, totalServicios, recibos);
     } else if (tipoJugador == 2) {
@@ -89,7 +89,7 @@ public class TorneoVoleibol {
     }
 
     jugadores.add(jugador);
-    System.out.println("Jugador registrado con éxito.");
+    System.out.println("Jugador registrado con exito.");
     }
 
     public void mostrarJugadores(ArrayList<Jugador> jugadores) {
@@ -123,16 +123,16 @@ public class TorneoVoleibol {
     }
 
     public void mostrarMejoresLiberos(ArrayList<Jugador> jugadores) {
-    // Filtrar y ordenar la lista de jugadores para obtener solo a los líberos
+    // Filtrar y ordenar la lista de jugadores para obtener solo a los liberos
     List<Libero> liberos = jugadores.stream()
         .filter(jugador -> jugador instanceof Libero)
         .map(jugador -> (Libero) jugador)
         .collect(Collectors.toList());
 
-    // Ordenar la lista de líberos por efectividad en orden descendente
+    // Ordenar la lista de liberos por efectividad en orden descendente
     Collections.sort(liberos, (libero1, libero2) -> Double.compare(libero2.calcularEfectividad(), libero1.calcularEfectividad()));
 
-    System.out.println("Los 3 Mejores Líberos:");
+    System.out.println("Los 3 Mejores Liberos:");
 
     int contador = 0;
     for (Libero libero : liberos) {
@@ -142,7 +142,7 @@ public class TorneoVoleibol {
         
         contador++;
         if (contador >= 3) {
-            break; // Mostrar solo los 3 mejores líberos
+            break; // Mostrar solo los 3 mejores liberos
         }
     }
     }
